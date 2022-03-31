@@ -8,7 +8,9 @@ export default function App() {
 	return (
 		<SafeAreaView style={styles.container}>
 			<View style={styles.base}>
-				<Text style={{ color: "#33c", fontSize: 42 }}>Lager-Appen</Text>
+				<Text style={{ color: "#33c", fontSize: 42 }}>
+					Lager-Appens
+				</Text>
 				<Image source={warehouse} style={{ width: 320, height: 240 }} />
 				<Stock />
 				<StatusBar style="auto" />
