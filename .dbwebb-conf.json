@@ -1,4 +1,4 @@
 {
-    "expo": "",
-    "github": "https://github.com/dbwebb-se/webapp-v4.git"
+	"expo": "https://expo.dev/@tinkz/lager?serviceType=classic&distribution=expo-go",
+	"github": "git@github.com:TinkzBot/lager.git"
 }
