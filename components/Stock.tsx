@@ -13,7 +13,7 @@ function StockList() {
 
 	const list = products.map((product, index) => (
 		<Text key={index}>
-			{product.name} - {product.stock}
+			{product.name} - ({product.stock} St) {product.price} Kr Styck
 		</Text>
 	));
 
@@ -23,7 +23,14 @@ function StockList() {
 export default function Stock() {
 	return (
 		<View>
-			<Text style={{ color: "#333", fontSize: 24 }}>
+			<Text
+				style={{
+					color: "#333",
+					fontSize: 25,
+					alignItems: "center",
+					justifyContent: "center",
+				}}
+			>
 				Lagerförteckning
 			</Text>
 			<StockList />
