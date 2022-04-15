@@ -23,7 +23,7 @@ function StockList({products, setProducts}) {
 
     const list = products.map((product, index) => 
             <Text style={ Typography.normal } key={index}>
-                { product.name } | { product.stock } st
+                { product.name } | { product.stock } st - { product.price } kr st
             </Text>
         );
 

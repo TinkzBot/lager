@@ -6,47 +6,48 @@ import OrderItem from "../interfaces/order_item";
 import product from "../models/products";
 
 const orders = {
-    getOrders: async function getOrders(): Promise<Order[]> {
-        const response = await fetch(`${config.base_url}/orders?api_key=${config.api_key}`);
-        const result = await response.json();
+	getOrders: async function getOrders(): Promise<Order[]> {
+		const response = await fetch(
+			`${config.base_url}/orders?api_key=${config.api_key}`
+		);
+		const result = await response.json();
+		console.log(result);
+		return result.data;
+	},
 
-        return result.data;
-    },
+	pickOrder: async function pickOrder(order: Partial<Order>) {
+		await Promise.all(
+			order.order_items.map(async (order_item: Partial<OrderItem>) => {
+				let updatedProduct = {
+					id: order_item.product_id,
+					name: order_item.name,
+					stock: order_item.stock - order_item.amount,
+					api_key: config.api_key,
+				};
 
-    pickOrder: async function pickOrder(order: Partial<Order>) {
-        await Promise.all(order.order_items.map(async (order_item: Partial<OrderItem>) => {
-            let updatedProduct = {
-                id: order_item.product_id,
-                name: order_item.name,
-                stock: order_item.stock - order_item.amount,
-                api_key: config.api_key,
-            };
+				await product.updateProduct(updatedProduct);
+			})
+		);
 
-            await product.updateProduct(updatedProduct);
-        }));
+		let updatedOrder = {
+			id: order.id,
+			name: order.name,
+			status_id: 200,
+			api_key: config.api_key,
+		};
 
-        let updatedOrder = {
-            id: order.id,
-            name: order.name,
-            status_id: 200,
-            api_key: config.api_key,
-        };
+		await orders.updateOrder(updatedOrder);
+	},
 
-        await orders.updateOrder(updatedOrder);
-    },
-
-    updateOrder: async function updateOrder(orderToUpdate: Partial<Order>) {
-        await fetch(`${config.base_url}/orders`, {
-            body: JSON.stringify(orderToUpdate),
-            headers: {
-                'content-type': 'application/json'
-            },
-            method: 'PUT'
-        })
-        .then(function (response) {
-
-        });
-    },
+	updateOrder: async function updateOrder(orderToUpdate: Partial<Order>) {
+		await fetch(`${config.base_url}/orders`, {
+			body: JSON.stringify(orderToUpdate),
+			headers: {
+				"content-type": "application/json",
+			},
+			method: "PUT",
+		}).then(function (response) {});
+	},
 };
 
 export default orders;

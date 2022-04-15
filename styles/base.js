@@ -5,11 +5,11 @@ export const header1 = {
 };
 
 export const headerImage = {
-    width: 340,
+    width: 390,
     height: 240,
-    borderRadius: 5,
-    borderColor: '#756553',
-    borderWidth: 3,
+    borderRadius: 1,
+    borderColor: '#486875',
+    borderWidth: 5,
 };
 
 export const container = {
@@ -18,14 +18,13 @@ export const container = {
 
 export const base = {
     flex: 1,
-    backgroundColor: '#FFF4E8',
+    backgroundColor: 'white',
     paddingLeft: 12,
     paddingRight: 12,
 };
 
 export const header3 = {
-    color: '#486875',
-    textDecorationLine: 'underline',
+    color: 'black',
     textAlign: 'center',
 };
 
@@ -35,5 +34,5 @@ export const header4 = {
 };
 
 export const warning = {
-    color: 'tomato',
+    color: 'red',
 };

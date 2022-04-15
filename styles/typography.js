@@ -1,7 +1,6 @@
 export const header1 = {
     fontSize: 42,
     marginBottom: 28,
-    fontFamily: 'Cochin',
 };
 
 export const header2 = {
@@ -14,7 +13,6 @@ export const header3 = {
     marginBottom: 20,
     marginTop: 15,
     textDecorationLine: 'underline',
-    fontFamily: 'Times New Roman',
 };
 
 export const header4 = {
@@ -22,17 +20,14 @@ export const header4 = {
     marginBottom: 20,
     marginTop: 15,
     textDecorationLine: 'underline',
-    fontFamily: 'Times New Roman',
 };
 
 export const normal = {
     fontSize: 20,
     marginBottom: 20,
-    fontFamily: 'Times New Roman',
 };
 
 export const normal2 = {
     fontSize: 20,
     marginBottom: 5,
-    fontFamily: 'Times New Roman',
-}
+};

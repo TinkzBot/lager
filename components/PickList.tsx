@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { View, Text, Button, Pressable } from "react-native";
-import orderModel from "../models/orders.ts";
-import productModel from "../models/products.ts";
+import orderModel from "../models/orders";
+import productModel from "../models/products";
 import { Base, Typography } from "../styles";
 
 export default function PickList({ route, navigation, setProducts }) {
