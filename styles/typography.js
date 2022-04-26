@@ -31,3 +31,16 @@ export const normal2 = {
     fontSize: 20,
     marginBottom: 5,
 };
+
+export const label = {
+    fontSize: 16,
+    textTransform: "uppercase",
+    color: "#555",
+};
+
+export const card = {
+    borderWidth: 2,
+    borderColor: "#ccc",
+    padding: 12,
+    marginBottom: 12,
+};
