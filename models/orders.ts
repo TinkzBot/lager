@@ -14,6 +14,14 @@ const orders = {
 		console.log(result);
 		return result.data;
 	},
+	
+	
+    getOrder: async function getOrder(invoice): Promise<Order[]> {
+        const response = await fetch(`${config.base_url}/orders/${invoice.order_id}?api_key=${config.api_key}`);
+        const result = await response.json();
+
+        return result.data;
+    },
 
 	pickOrder: async function pickOrder(order: Partial<Order>) {
 		await Promise.all(
