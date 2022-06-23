@@ -1,35 +1,16 @@
 import { useState, useEffect } from 'react';
 import { Text, View } from 'react-native';
-import productModel from "../models/products.ts";
-import { Base, Typography } from './../styles';
+import { Base, Typography } from "../styles";
+
+import StockList from "./StockList";
+
 
 export default function Stock({products, setProducts}) {
     return (
-        <View>
-        <Text style={{...Typography.header3, ...Base.header3}}>Lagerförteckning</Text>
+
+    <View>
+        <Text style={{color: '#333', fontSize: 24}}>Lagerförteckning</Text>
         <StockList products={products} setProducts={setProducts} />
-        </View>
+    </View>
     );
-}
-
-function StockList({products, setProducts}) {
-
-    useEffect(() => {
-        (async () => {
-            const allProducts = await productModel.getProducts();
-            setProducts(allProducts);
-        })();
-    }, []);
-
-    const list = products.map((product, index) => 
-            <Text style={ Typography.normal } key={index}>
-                { product.name } | { product.stock } st - { product.price } kr st
-            </Text>
-        );
-
-    return (
-        <View>
-            {list}
-        </View>
-    )
 }

@@ -10,7 +10,7 @@ export default function Home({ products, setProducts }) {
 		<SafeAreaView style={Base.container}>
 			<ScrollView style={Base.base}>
 				<Text style={{ ...Base.header1, ...Typography.header1 }}>
-					Hemma Fix
+					Lager-Appen
 				</Text>
 				<Image source={FrontImage} style={Base.headerImage} />
 				<Stock products={products} setProducts={setProducts} />
